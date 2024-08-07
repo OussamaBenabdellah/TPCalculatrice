@@ -12,6 +12,7 @@ bool vrais = false;
 while (!vrais)
 {
     Console.WriteLine("introduit le premier numéro");
+    string a = Console.ReadLine();
 
     string? saisir = Console.ReadLine();
     vrais = int.TryParse(saisir, out int g);
@@ -53,15 +54,15 @@ while (!isValidOperator)
 
     foreach (var item in opérateur)
     {
-
+        
         if (item == calculatrice.Operator)
         {
             isValidOperator = true;
             calculatrice.Operator = item;
-            break;
-        }
+       break;
+    }
         else
-        {
+    {
             isValidOperator = false;
 
 
@@ -75,11 +76,11 @@ while (!isValidOperator)
 switch (calculatrice.Operator)
 {
     case "+":
-        {
+    {
             calculatrice.Addition(calculatrice.OperandDroite, calculatrice.OperandGauche);
 
-            break;
-        }
+        break;
+    }
     case "/":
         {
             calculatrice.Division(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
@@ -96,17 +97,23 @@ switch (calculatrice.Operator)
         calculatrice.Modulo(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
 
     default:
-        {
+    {
             break;
-        }
+    }
 }
 Console.WriteLine(calculatrice.Resultas);
 
 
+  
 
 
 
+Calculatrice calculatrice = new Calculatrice();
 
 
 
-
+Console.WriteLine(calculatrice.Addition(v,w));
+Console.WriteLine(calculatrice.Soustraction(v,w));
+Console.WriteLine(calculatrice.Division(v,w));
+Console.WriteLine(calculatrice.Multiplication(v,w));
+Console.WriteLine(calculatrice.Modulo(v,w));

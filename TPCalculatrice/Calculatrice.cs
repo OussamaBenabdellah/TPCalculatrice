@@ -13,9 +13,10 @@ namespace TPCalculatrice
         public int Resultas { get; set; }
         public int OperandDroite { get; set; }
         public int OperandGauche { get; set; }
-
-
-
+        
+        private int Resultas { get; set; }
+        
+        
         public string? Operator { get; set; }
 
         public Calculatrice()
@@ -24,7 +25,7 @@ namespace TPCalculatrice
             //operandGauche = OperandGauche;
         }
 
-        public int Addition(int a, int b)
+        public int Addition(int a, int b) 
         {
             return Resultas = a + b;
 
@@ -39,8 +40,8 @@ namespace TPCalculatrice
         {
             if (b != 0)
             {
-
-                return Resultas = a / b;
+                
+                    return Resultas = a / b;
             }
             else
             {
@@ -49,9 +50,10 @@ namespace TPCalculatrice
 
             }
 
+            return Resultas = 0;
+            
 
-
-        }
+        } 
         public int Multiplication(int a, int b)
         {
             return Resultas = a * b;
