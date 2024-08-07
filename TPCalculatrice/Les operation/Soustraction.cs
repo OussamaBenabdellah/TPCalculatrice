@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TPCalculatrice.Les_operation
+﻿namespace TPCalculatrice.Les_operation
 {
-    internal class Soustraction
+    public class Soustraction : Operation
     {
+        public Soustraction(int operandeGauche, int operandeDroite) : base(operandeGauche, operandeDroite)
+        {
+        }
+        public void Excuter()
+        {
+            Resultas = OperandeGauche - OperandeDroite;
+        }
     }
 }

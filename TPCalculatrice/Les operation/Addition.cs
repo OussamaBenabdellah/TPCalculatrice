@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TPCalculatrice.Les_operation
+﻿namespace TPCalculatrice.Les_operation
 {
-    internal class Addition : Operation 
+    public class Addition : Operation
     {
-        public override int Excution(int a , int b)
+        public Addition(int operandeGauche, int operandeDroite) : base(operandeGauche, operandeDroite)
         {
-           return a + b;
+        }
+
+        public void Excuter()
+        {
+            Resultas = OperandeGauche + OperandeDroite;
         }
     }
 }

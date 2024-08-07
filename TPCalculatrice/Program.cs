@@ -1,112 +1,106 @@
-﻿
-using System.Linq.Expressions;
-using TPCalculatrice;
+﻿using TPCalculatrice;
+using TPCalculatrice.Les_operation;
 
-
-
-//char op;
-Calculatrice calculatrice = new Calculatrice();
+//char operations;
 
 bool vrais = false;
-
+int o1 = 0;
 while (!vrais)
 {
     Console.WriteLine("introduit le premier numéro");
 
     string? saisir = Console.ReadLine();
     vrais = int.TryParse(saisir, out int g);
-    calculatrice.OperandDroite = g;
-    if (vrais)
+    o1 = g;
+    if (vrais == true)
     {
         break;
     }
     Console.WriteLine($" Svp veuillez réessayer  car la valeur saisie n’est pas acceptable  ");
-
 }
 bool x = false;
 string? saisie;
-
+int o2 = 0;
 while (!x)
 {
     Console.WriteLine("introduit le deuxieme numéro ");
 
     saisie = Console.ReadLine();
     x = int.TryParse(saisie, out int y);
-    calculatrice.OperandGauche = y;
-    
 
-    if(x)
+    o2 = y;
+
+    if (x == true)
     {
         break;
     }
-    Console.WriteLine($" Svp veuillez réessayer  car la valeur saisie n’est pas acceptable  ");
+    else
+    {
+        Console.WriteLine($" Svp veuillez réessayer  car la valeur saisie n’est pas acceptable  ");
+    }
 }
 
-
 bool isValidOperator = false;
-
+string? opérateur = "";
 while (!isValidOperator)
 {
-    string[] opérateur = ["*", "-", "/", "%", "+"];
+    string[] opérateurs = ["+", "*", "-", "/", "%"];
     Console.WriteLine("introduit l'opération souhaiter  ");
-    calculatrice.Operator = Console.ReadLine();
+    opérateur = Console.ReadLine();
 
-    foreach (var item in opérateur)
+    foreach (var item in opérateurs)
     {
-
-        if (item == calculatrice.Operator)
+        if (item == opérateur)
         {
             isValidOperator = true;
-            calculatrice.Operator = item;
+            opérateur = item;
             break;
         }
         else
         {
             isValidOperator = false;
-
-
         }
     }
-
-    Console.WriteLine($" Svp veuillez réessayer  car la valeur saisie n’est pas acceptable  ");
-
+    if (!isValidOperator)
+    {
+        Console.WriteLine($" Svp veuillez réessayer  car la valeur saisie n’est pas acceptable  ");
+    }
 }
 
-switch (calculatrice.Operator)
+Operation operations;
+///
+/// da ce swith on est entrain d'utiliser le polymorphisme afin d'instancier chaque class (addition, Division ...) 
+///
+switch (opérateur)
 {
     case "+":
         {
-            calculatrice.Addition(calculatrice.OperandDroite, calculatrice.OperandGauche);
-
+            operations = new Addition(o1, o2);
             break;
         }
     case "/":
         {
-            calculatrice.Division(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
+            operations = new Division(o1,o2); break;
         }
     case "*":
         {
-            calculatrice.Multiplication(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
+            operations = new Multiplication(o1, o2); break;
         }
     case "-":
         {
-            calculatrice.Soustraction(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
+            operations = new Soustraction(o1, o2); break;
         }
     case "%":
-        calculatrice.Modulo(calculatrice.OperandDroite, calculatrice.OperandGauche); break;
+        operations = new Modulo(o1, o2); break;
 
     default:
         {
-            break;
+            return;
         }
 }
-Console.WriteLine(calculatrice.Resultas);
 
+Calculatrice calculatrice = new(operations);
 
+calculatrice.Excuter();
 
-
-
-
-
-
-
+Console.WriteLine(operations.Resultas);

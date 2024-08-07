@@ -1,68 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TPCalculatrice.Les_operation;
 
 namespace TPCalculatrice
 {
     public class Calculatrice
     {
-        private int operandDroite;
-        public int operandGauche;
-        public int Resultas { get; set; }
-        public int OperandDroite { get; set; }
-        public int OperandGauche { get; set; }
+        public Operation Operation { get; }
 
-
-
-        public string? Operator { get; set; }
-
-        public Calculatrice()
+        public Calculatrice(Operation operation)
         {
-            //operandDroite = a;
-            //operandGauche = OperandGauche;
+            Operation = operation;
         }
-
-        public int Addition(int a, int b)
+        /// <summary>
+        /// avec cette methode on est entrain d'utiliser le Patern-Matching 
+        /// afin de confirmer de quel type(addition,division..) est l'Operation  
+        /// 
+        /// </summary>
+        public void Excuter()
         {
-            return Resultas = a + b;
-
-        }
-
-        public int Soustraction(int a, int b)
-        {
-            return Resultas = a - b;
-
-        }
-        public int Division(int a, int b)
-        {
-            if (b != 0)
+            if (Operation is Addition addition)
             {
-
-                return Resultas = a / b;
+                addition.Excuter();
+            }
+            else if (Operation is Soustraction soustraction) 
+            {
+                soustraction.Excuter();
+            }
+            else if (Operation is Multiplication multiplication)
+            {
+                multiplication.Excuter();
+            }
+            else if (Operation is Division division)
+            {
+                division.Excuter();
+            }
+            else if (Operation is Modulo modulo)
+            {
+                modulo.Excuter();
             }
             else
             {
-                Console.WriteLine("on ne peut pas déviser par la valeur Zéro");
-                return 0;
-
+                Console.WriteLine("Opération noin reconus");
             }
 
-
-
-        }
-        public int Multiplication(int a, int b)
-        {
-            return Resultas = a * b;
-        }
-
-        public int Modulo(int a, int b)
-        {
-            return Resultas = a % b;
-
         }
 
 
+
+
+
+       
+      
+
+        
     }
 }
