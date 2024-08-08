@@ -1,11 +1,12 @@
 ﻿namespace TPCalculatrice.Les_operation
 {
-    public class Division : Operation
+    public class Division : Operation 
     {
         public Division(int operandeGauche, int operandeDroite) : base(operandeGauche, operandeDroite)
         {
         }
-        public void Excuter()
+
+        public override void Excuter()
         {
             if (OperandeDroite != 0)
             {

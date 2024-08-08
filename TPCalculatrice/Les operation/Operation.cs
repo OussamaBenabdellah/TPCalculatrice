@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TPCalculatrice.Les_operation
+﻿namespace TPCalculatrice.Les_operation
 {
-    public class Operation
+    public abstract class Operation : IOperation 
     {
-        public int OperandeDroite { get; set; }
-        public int OperandeGauche { get; set; }
-        public int Resultas { get; set; }
+        protected int OperandeDroite { get; }
+        protected int OperandeGauche { get; }
+        public int  Resultas { get ; protected  set; }
 
-        public Operation(int operandeGauche, int operandeDroite)
+        protected Operation(int operandeGauche, int operandeDroite)
         {
             OperandeGauche = operandeGauche;
             OperandeDroite = operandeDroite;
         }
+
+        public abstract void Excuter();
     }
 }

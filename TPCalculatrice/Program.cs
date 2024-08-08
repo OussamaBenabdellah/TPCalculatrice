@@ -67,9 +67,9 @@ while (!isValidOperator)
     }
 }
 
-Operation operations;
+IOperation operations;
 ///
-/// da ce swith on est entrain d'utiliser le polymorphisme afin d'instancier chaque class (addition, Division ...) 
+/// dans ce swith on est entrain d'utiliser le polymorphisme afin d'instancier chaque class (addition, Division ...)
 ///
 switch (opérateur)
 {
@@ -80,7 +80,7 @@ switch (opérateur)
         }
     case "/":
         {
-            operations = new Division(o1,o2); break;
+            operations = new Division(o1, o2); break;
         }
     case "*":
         {
@@ -98,7 +98,7 @@ switch (opérateur)
             return;
         }
 }
-
+ 
 Calculatrice calculatrice = new(operations);
 
 calculatrice.Excuter();
