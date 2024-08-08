@@ -46,7 +46,8 @@ namespace TPCalculatrice
 
 
 
-
+            return Resultas = 0;
+            
 
        
       

@@ -8,6 +8,7 @@ int o1 = 0;
 while (!vrais)
 {
     Console.WriteLine("introduit le premier numéro");
+    string a = Console.ReadLine();
 
     string? saisir = Console.ReadLine();
     vrais = int.TryParse(saisir, out int g);
@@ -57,7 +58,7 @@ while (!isValidOperator)
             break;
         }
         else
-        {
+    {
             isValidOperator = false;
         }
     }
