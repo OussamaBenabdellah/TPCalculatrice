@@ -1,7 +1,6 @@
 # TPCalculatrice
 
 
-premier partie de l'exercic c'est de cr�e une class calculatrice avec des methodes d'operation addition, multiplication, division, modulo
-les methodes ont des parametres d'entrer deux entier et retourn un resultas 
+ La première partie de l'exercice consiste à créer une classe Calculatrice avec des méthodes pour les opérations d'addition, multiplication, division, et modulo. Les méthodes prennent en paramètres d'entrée deux entiers et retournent un résultat.
 
-ensuite permitant a l'utilisateur d'introduir deux nombre et afficher toute les methode 
+Ensuite, permettre à l'utilisateur d'introduire deux nombres et d'afficher toutes les méthodes.
